@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>ApplyEase - Scholarship Sorting & Guidance Portal</title>
+  <meta name="description" content="ApplyEase assists students to sort out eligible government & CSR scholarships based on academic, financial, and background criteria with complete guidance.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo-container" onclick="scrollToTop()">
+      <img src="logo.png" alt="ApplyEase Logo" class="logo-img">
+      <div class="logo-text">Apply<span>Ease</span></div>
+    </div>
+    
+    <!-- Mobile Menu Hamburger Button -->
+    <button class="mobile-menu-btn" aria-label="Toggle navigation menu" onclick="toggleMobileMenu()">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#home" class="nav-link active" onclick="closeMobileMenu()">Home</a>
+      <a href="#criteria-form" class="nav-link" onclick="closeMobileMenu()">Find Scholarships</a>
+      <a href="#results" class="nav-link" onclick="closeMobileMenu()">Results</a>
+      <button class="nav-pill-btn" onclick="closeMobileMenu(); scrollToSection('criteria-form')">⚡ Quick Sort</button>
+    </div>
+  </nav>
+
+  <div class="container" id="home">
+    
+    <!-- Hero Section -->
+    <header class="hero-section">
+      <div class="hero-pill-tag">
+        <span>✨</span> Smart Scholarship Matcher & Guidance Assistance
+      </div>
+      <h1 class="hero-title">
+        Discover & Claim Every <span>Scholarship</span> You Deserve
+      </h1>
+      <p class="hero-subtitle">
+        ApplyEase simplifies scholarship search by instantly matching your course, income band, category, and eligibility drivers with verified Government & Corporate CSR grants.
+      </p>
+
+      <!-- Dynamic Rotating Quotes -->
+      <div class="hero-quote-container">
+        <span class="quote-mark">“</span>
+        <span id="heroQuote" class="hero-quote-text">Your Gateway to Stress-Free Scholarships</span>
+        <span class="quote-mark">”</span>
+      </div>
+
+      <!-- SIGNATURE CYLINDRICAL HERO BUTTON -->
+      <button class="btn-cylindrical" onclick="scrollToSection('criteria-form')">
+        <span>Find My Scholarships</span>
+        <span class="btn-icon">➜</span>
+      </button>
+    </header>
+
+    <!-- Criteria Collection Form Section -->
+    <section id="criteria-form" class="criteria-section">
+      <div class="section-title-wrap">
+        <div class="section-tag">Eligibility Criteria Collector</div>
+        <h2 class="section-title">Enter Your Details for Precise Matching</h2>
+        <p class="section-desc">Select options from the dropdown menus below to personalize your scholarship eligibility filter.</p>
+          <form id="scholarshipForm" class="criteria-card" onsubmit="handleCriteriaSubmit(event)">
+        <div class="form-grid">
+
+          <!-- SECTION 1: General Details -->
+          <div class="category-header">
+            <div class="category-icon">👤</div>
+            <div class="category-title">1. General Details</div>
+          </div>
+
+          <div class="form-control">
+            <label class="form-label" for="gender">Gender *</label>
+            <div class="select-wrapper">
+              <select id="gender" class="form-select" required>
+                <option value="" disabled selected>Select Gender...</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- SECTION 2: Academic Credentials -->
+          <div class="category-header">
+            <div class="category-icon">🎓</div>
+            <div class="category-title">2. Academic Credentials</div>
+          </div>
+
+          <div class="form-control">
+            <label class="form-label" for="course">Current Course & Branch *</label>
+            <div class="select-wrapper">
+              <select id="course" class="form-select" required>
+                <option value="" disabled selected>Select Course & Branch...</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-control">
+            <label class="form-label" for="year">Current Year of Study *</label>
+            <div class="select-wrapper">
+              <select id="year" class="form-select" required>
+                <option value="" disabled selected>Select Year/Semester...</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-control">
+            <label class="form-label" for="collegeType">College/Institution Type *</label>
+            <div class="select-wrapper">
+              <select id="collegeType" class="form-select" required>
+                <option value="" disabled selected>Select Institution Type...</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-control">
+            <label class="form-label" for="admissionType">Admission Type *</label>
+            <div class="select-wrapper">
+              <select id="admissionType" class="form-select" required>
+                <option value="" disabled selected>Select Admission Type...</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-control">
+            <label class="form-label" for="qualifyingScore">Qualifying Exam Score / CGPA *</label>
+            <div class="select-wrapper">
+              <select id="qualifyingScore" class="form-select" required>
+                <option value="" disabled selected>Select Score Range...</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- SECTION 3: Financial & Category Details -->
+          <div class="category-header">
+            <div class="category-icon">💳</div>
+            <div class="category-title">3. Financial & Category Details</div>
+          </div>
+
+          <div class="form-control">
+            <label class="form-label" for="familyIncome">Annual Family Income Band *</label>
+            <div class="select-wrapper">
+              <select id="familyIncome" class="form-select" required>
+                <option value="" disabled selected>Select Annual Income Band...</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-control">
+            <label class="form-label" for="category">Category / Caste Community *</label>
+            <div class="select-wrapper">
+              <select id="category" class="form-select" required>
+                <option value="" disabled selected>Select Category...</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- SECTION 4: Special Eligibility Drivers -->
+          <div class="category-header">
+            <div class="category-icon">🌟</div>
+            <div class="category-title">4. Special Eligibility Drivers (CSR & Niche Grants)</div>
+          </div>
+
+          <div class="form-control">
+            <label class="form-label" for="singleParent">Single Parent / Orphan Status *</label>
+            <div class="select-wrapper">
+              <select id="singleParent" class="form-select" required>
+                <option value="" disabled selected>Select Status...</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-control">
+            <label class="form-label" for="disability">Physical Disability (PWD) Status *</label>
+            <div class="select-wrapper">
+              <select id="disability" class="form-select" required>
+                <option value="" disabled selected>Select PWD Status...</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-control">
+            <label class="form-label" for="parentOccupation">Parent's Occupation *</label>
+            <div class="select-wrapper">
+              <select id="parentOccupation" class="form-select" required>
+                <option value="" disabled selected>Select Occupation...</option>
+              </select>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- FINAL CYLINDRICAL FORM BUTTON -->
+        <div class="form-submit-wrap">
+          <button type="submit" class="btn-cylindrical">
+            <span>Find My Scholarships</span>
+            <span class="btn-icon">🔍</span>
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Results Section -->
+    <section id="results" class="results-section" style="display: none;">
+      <div class="results-header-bar">
+        <div class="results-count-title">
+          Matching Scholarships Found: <span id="matchCount">0</span>
+        </div>
+        <div class="filter-pills">
+          <button class="filter-pill active" onclick="filterResults('all', this)">All Schemes</button>
+          <button class="filter-pill" onclick="filterResults('govt', this)">🏛️ Govt Grants</button>
+          <button class="filter-pill" onclick="filterResults('csr', this)">💎 Corporate CSR</button>
+          <button class="filter-pill" onclick="filterResults('minority', this)">🌙 Minority Grants</button>
+        </div>
+      </div>
+
+      <div class="scholarship-grid" id="scholarshipGrid">
+        <!-- Rendered dynamically by JavaScript -->
+      </div>
+
+      <!-- BOTTOM APPLYEASE ACTION BANNER WITH WHATSAPP INTEGRATION -->
+      <div class="applyease-action-banner">
+        <div class="banner-badge">🚀 Complete Application Assistance</div>
+        <h2 class="banner-title">Need Guidance to Apply for These Scholarships?</h2>
+        <p class="banner-desc">
+          Click the <strong>ApplyEase</strong> button below to compile your eligibility summary, download your text record, and send it directly to our expert counseling desk via WhatsApp for 1-on-1 assistance!
+        </p>
+
+        <button id="applyEaseExportBtn" class="btn-applyease-large" onclick="handleApplyEaseExport()">
+          <span>ApplyEase</span>
+          <span style="font-size: 1.4rem;">📲</span>
+        </button>
+
+        <div class="banner-note">
+          🔒 Secure Direct Transmission to WhatsApp Support: <strong>+91 8589097195</strong>
+        </div>
+      </div>
+    </section>
+
+    <!-- Application Pro-Tips Section (Bottom of Page) -->
+    <section class="pro-tips-section">
+      <div class="pro-tips-card">
+        <div class="pro-tips-header">
+          <div class="pro-tips-badge">💡 Application Pro-Tips</div>
+          <h3 class="pro-tips-title">Essential Rules for Successful Scholarship Approval</h3>
+        </div>
+        <ul class="pro-tips-list">
+          <li>
+            <span class="tip-bullet">✓</span>
+            <div>
+              <strong>Aadhaar NPCI Bank Account Seeding:</strong> Ensure your bank account is linked to your Aadhaar and NPCI seeding is enabled for direct benefit transfer (DBT).
+            </div>
+          </li>
+          <li>
+            <span class="tip-bullet">✓</span>
+            <div>
+              <strong>Valid Income Certificate:</strong> Obtain an Income Certificate issued by Tahsildar / Village Officer valid for the current financial year.
+            </div>
+          </li>
+          <li>
+            <span class="tip-bullet">✓</span>
+            <div>
+              <strong>Marksheet Attestation:</strong> Keep your qualifying semester CGPA marksheets / SSLC certificates attested by your Institution Principal / HOD.
+            </div>
+          </li>
+          <li>
+            <span class="tip-bullet">✓</span>
+            <div>
+              <strong>Clear Document Scans:</strong> Prepare clear scanned copies (PDF / JPEG under 500KB) of all required certificates prior to starting portal registration.
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <!-- Guidance Modal -->
+  <div class="modal-overlay" id="guidanceModal">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeGuidanceModal()">✕</button>
+      <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--primary-sky);" id="modalTitle">Scheme Guidance</h2>
+      <div id="modalBodyText" style="color: var(--text-muted); font-size: 0.95rem; margin-top: 1rem; line-height: 1.6;">
+        <!-- Dynamic guidance text -->
+      </div>
+      <div class="modal-footer-btns">
+        <button class="modal-btn-secondary" onclick="closeGuidanceModal()">Got It, Thanks!</button>
+        <button class="modal-btn-whatsapp" onclick="closeGuidanceModal(); handleApplyEaseExport()">
+          <span>Need Assistance?</span>
+          <span style="font-size: 1.1rem;">📲</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating AI Assistant Chatbot Widget -->
+  <div class="chatbot-widget">
+    <button class="chatbot-btn" onclick="toggleChat()">💬</button>
+    <div class="chat-panel" id="chatPanel">
+      <div class="chat-header">
+        <span>ApplyEase AI Guidance</span>
+        <button onclick="toggleChat()" style="background:none; border:none; color:white; font-weight:bold; cursor:pointer;">✕</button>
+      </div>
+      <div class="chat-messages" id="chatMessages">
+        <div class="msg bot">
+          👋 Hi! I am ApplyEase Assistant. Ask me anything about e-Grantz, NSP, income limits, or document requirements!
+        </div>
+      </div>
+      <div class="chat-input-box">
+        <input type="text" id="chatInput" class="chat-input" placeholder="Type your query..." onkeydown="if(event.key==='Enter') sendChatMessage()">
+        <button class="chat-send" onclick="sendChatMessage()">➔</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div style="font-weight: 800; font-size: 1.2rem; color: var(--text-main); margin-bottom: 0.5rem;">
+      Apply<span style="color: var(--primary-sky);">Ease</span>
+    </div>
+    <p>© 2026 ApplyEase Student Assistance Portal. Helping students achieve their academic dreams.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
