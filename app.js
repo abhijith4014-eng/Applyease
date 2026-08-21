@@ -93,36 +93,36 @@ const CRITERIA_OPTIONS = {
 // Scholarship Master Dataset
 const MASTER_SCHOLARSHIPS = [
   {
-    id: 'dce-suvarna',
-    name: 'DCE Suvarna Jubilee Merit Scholarship',
-    provider: 'Govt of Kerala (Collegiate Education)',
-    type: 'govt',
-    categoryTag: 'Government Grant',
-    reward: '₹10,000 / Year',
-    rewardValue: 10000,
-    deadline: 'Oct 31, 2026',
-    requirements: ['Income < ₹1 Lakh', 'First Year UG Student', 'Govt or Aided College'],
-    criteria: {
-      years: ['1st Year'],
-      collegeTypes: ['Government', 'Aided'],
-      familyIncomes: ['Under ₹1 Lakh'],
-      courses: ['B.Tech CSE', 'B.Tech ECE', 'B.Tech Mech', 'MBBS / BDS', 'B.Sc Nursing', 'B.Sc CS/IT', 'B.Com / BBA', 'B.A. / B.Sc', 'M.Tech / MCA', 'Other']
-    }
-  },
+  id: 'dce-suvarna',
+  name: 'DCE Suvarna Jubilee Merit Scholarship',
+  provider: 'Govt of Kerala (Collegiate Education)',
+  type: 'govt',
+  categoryTag: 'Government Grant',
+  reward: '₹10,000 / Year',
+  rewardValue: 10000,
+  deadline: 'Nov 30, 2026',
+  requirements: ['BPL Family', 'First Year UG/PG Student', 'Govt or Aided College', 'Min 50% Marks'],
+  criteria: {
+    years: ['1st Year'],
+    collegeTypes: ['Government', 'Aided'],
+    familyIncomes: ['Under ₹1 Lakh']
+  }
+},
   {
-    id: 'egrantz-postmatric',
-    name: 'e-Grantz 3.0 Post-Matric Scholarship',
-    provider: 'BCDD & SC/ST Dev Dept, Govt of Kerala',
-    type: 'govt',
-    categoryTag: 'Government Grant',
-    reward: 'Full Fee Waiver + ₹50,000 Stipend',
-    rewardValue: 50000,
-    deadline: 'Nov 15, 2026',
-    requirements: ['SC / ST / OEC / OBC Category', 'Income < ₹2.5L for OBC (No limit for SC/ST)', 'Merit or Govt Seat'],
-    criteria: {
-      categories: ['SC', 'ST', 'OEC', 'OBC'],
-      admissionTypes: ['Merit Quota']
-    }
+  id: 'egrantz-postmatric',
+  name: 'E-Grantz 3.0 Post-Matric Scholarship',
+  provider: 'Govt of Kerala (SC/ST/OBC Development Depts)',
+  type: 'govt',
+  categoryTag: 'Government Grant',
+  reward: '₹100 - ₹1,500 / Month',
+  rewardValue: 1500,
+  deadline: 'Nov 30, 2026',
+  requirements: ['SC/ST/OEC/OBC Category', 'Domicile of Kerala', 'Min 75% Attendance', 'Merit or Reservation Quota Admission'],
+  criteria: {
+    collegeTypes: ['Government', 'Aided', 'Self-Financing'],
+    familyIncomes: ['Under ₹1 Lakh'],
+    categories: ['SC', 'ST', 'OEC', 'OBC']
+  }
   },
   {
     id: 'federal-bank-harmire',
@@ -264,6 +264,501 @@ const MASTER_SCHOLARSHIPS = [
     requirements: ['Parent must be Construction Worker / Daily Wager'],
     criteria: {
       parentOccupations: ['Construction Worker']
+    }
+  },
+  {
+    id: 'ffe-scholarship',
+    name: 'Foundation for Excellence (FFE) Scholarship',
+    provider: 'Foundation For Excellence India Trust',
+    type: 'csr',
+    categoryTag: 'Corporate CSR',
+    reward: '₹40,000 - ₹50,000 / Year',
+    rewardValue: 50000,
+    deadline: 'Varies (Check Official Site)',
+    requirements: ['1st Year BE/B.Tech, Integrated M.Tech, MBBS or 5-Yr Law', 'Min 70% in Class 12', 'Income < ₹3 Lakhs', 'Qualify via State/National Entrance Exam'],
+    criteria: {
+      years: ['1st Year'],
+      courses: ['B.Tech CSE', 'B.Tech ECE', 'B.Tech Mech', 'MBBS / BDS'],
+      familyIncomes: ['Under ₹1 Lakh', '₹1L–₹2.5L']
+    }
+  },
+  {
+    id: 'hdfc-parivartan-ecss',
+    name: 'HDFC Bank Parivartan ECSS Programme',
+    provider: 'HDFC Bank Parivartan (CSR)',
+    type: 'csr',
+    categoryTag: 'Corporate CSR',
+    reward: '₹15,000 - ₹75,000 (By Course Level)',
+    rewardValue: 75000,
+    deadline: 'Aug 31, 2026',
+    requirements: ['Class 1 to PG / Diploma / ITI / Polytechnic', 'Min 55% Marks', 'Income ≤ ₹2.5 Lakhs', 'Preference: Personal or Family Crisis'],
+    criteria: {
+      familyIncomes: ['Under ₹1 Lakh', '₹1L–₹2.5L']
+    }
+  },
+  {
+    id: 'tata-capital-pankh',
+    name: 'Tata Capital Pankh Scholarship Programme',
+    provider: 'Tata Capital Limited (CSR)',
+    type: 'csr',
+    categoryTag: 'Corporate CSR',
+    reward: '₹10,000 - ₹1,00,000 (Up to 80% of Tuition)',
+    rewardValue: 100000,
+    deadline: 'Sep 30, 2026',
+    requirements: ['Class 11 to UG / Diploma / PG', 'Min 60% Marks (80% for Professional Courses)', 'Income ≤ ₹2.5 - 4 Lakhs'],
+    criteria: {
+      familyIncomes: ['Under ₹1 Lakh', '₹1L–₹2.5L']
+    }
+  },
+  {
+    id: 'kotak-kanya',
+    name: 'Kotak Kanya Scholarship',
+    provider: 'Kotak Education Foundation',
+    type: 'csr',
+    categoryTag: 'Corporate CSR',
+    reward: '₹1,50,000 / Year',
+    rewardValue: 150000,
+    deadline: 'Aug 20, 2026',
+    requirements: ['Female Student', '1st Year Professional UG (Engg/MBBS/Law/Design/Architecture)', 'Min 75% in Class 12', 'Income < ₹6 Lakhs'],
+    criteria: {
+      genders: ['Female'],
+      years: ['1st Year'],
+      courses: ['B.Tech CSE', 'B.Tech ECE', 'B.Tech Mech', 'MBBS / BDS'],
+      familyIncomes: ['Under ₹1 Lakh', '₹1L–₹2.5L', '₹2.5L–₹8L']
+    }
+  },
+  {
+    id: 'kotak-suraksha',
+    name: 'Kotak Suraksha Scholarship Programme',
+    provider: 'Kotak Securities / Kotak Education Foundation',
+    type: 'csr',
+    categoryTag: 'Corporate CSR',
+    reward: 'Up to ₹1,00,000 / Year',
+    rewardValue: 100000,
+    deadline: 'Jan 23, 2027',
+    requirements: ['Persons with Disabilities (PwD)', 'Class 9-12 or UG Student', 'Min 55% Marks', 'Income < ₹3.2 Lakhs'],
+    criteria: {
+      disabilities: ['Below 40%', '40% or Above'],
+      familyIncomes: ['Under ₹1 Lakh', '₹1L–₹2.5L', '₹2.5L–₹8L']
+    }
+  },
+  {
+    id: 'panasonic-ratti-chhatr',
+    name: 'Panasonic Ratti Chhatr Scholarship',
+    provider: 'Panasonic Life Solutions India (CSR)',
+    type: 'csr',
+    categoryTag: 'Corporate CSR',
+    reward: '₹70,250 / Year (4 Years)',
+    rewardValue: 70250,
+    deadline: 'Aug 20, 2026',
+    requirements: ['1st Year B.E./B.Tech at an IIT Only', 'Min 75% in Class 12', 'Income ≤ ₹8 Lakhs'],
+    criteria: {
+      years: ['1st Year'],
+      courses: ['B.Tech CSE', 'B.Tech ECE', 'B.Tech Mech'],
+      familyIncomes: ['Under ₹1 Lakh', '₹1L–₹2.5L', '₹2.5L–₹8L']
+    }
+  },
+  {
+    id: 'aditya-birla-capital',
+    name: 'Aditya Birla Capital Scholarship',
+    provider: 'Aditya Birla Capital Foundation',
+    type: 'csr',
+    categoryTag: 'Corporate CSR',
+    reward: 'Up to ₹60,000 (One-time)',
+    rewardValue: 60000,
+    deadline: 'Dec 07, 2026',
+    requirements: ['Female Student', 'Class 9 to PG', 'Min 60% Marks', 'Income ≤ ₹6 Lakhs'],
+    criteria: {
+      genders: ['Female'],
+      familyIncomes: ['Under ₹1 Lakh', '₹1L–₹2.5L', '₹2.5L–₹8L']
+    }
+  },
+  {
+    id: 'sitaram-jindal-scholarship',
+    name: 'Sitaram Jindal Foundation Scholarship',
+    provider: 'Sitaram Jindal Foundation',
+    type: 'csr',
+    categoryTag: 'NGO Grant',
+    reward: '₹500 - ₹3,200 / Month',
+    rewardValue: 38400,
+    deadline: 'Round the Year (Rolling)',
+    requirements: ['Class 11 to PG (Govt/Aided/Affordable Private)', 'Min 50-65% Marks (Relaxed for Girls)', 'Income < ₹2.5 - 4 Lakhs'],
+    criteria: {
+      familyIncomes: ['Under ₹1 Lakh', '₹1L–₹2.5L']
+    }
+  },
+  {
+    id: 'mea-houston-scholarship',
+    name: 'Malayalee Engineers\' Association (MEA) Houston Scholarship',
+    provider: 'Malayalee Engineers\' Association, Houston (USA)',
+    type: 'csr',
+    categoryTag: 'NGO Grant',
+    reward: 'USD 600 / Year (~₹52,000)',
+    rewardValue: 52000,
+    deadline: 'Nov 30, 2026',
+    requirements: ['Kerala Origin Student Only', '1st Year Engineering/Tech/CS/Architecture', 'Top 7000 Rank in KEAM or NATA', 'Income < ₹1.5 Lakhs'],
+    criteria: {
+      years: ['1st Year'],
+      courses: ['B.Tech CSE', 'B.Tech ECE', 'B.Tech Mech'],
+      familyIncomes: ['Under ₹1 Lakh']
+    }
+  },
+  {
+    id: 'santoor-scholarship',
+    name: 'Santoor Scholarship Programme',
+    provider: 'Wipro Consumer Care & Wipro Cares (CSR)',
+    type: 'csr',
+    categoryTag: 'Corporate CSR',
+    reward: '₹30,000 (One-time)',
+    rewardValue: 30000,
+    deadline: 'Oct 15, 2026',
+    requirements: ['Female Student Only', '1st Year UG (Andhra Pradesh / Maharashtra)', 'Class 10 & 12 from Govt School'],
+    criteria: {
+      genders: ['Female'],
+      years: ['1st Year']
+    }
+  },
+  {
+    id: 'virtusa-engineering-excellence',
+    name: 'Virtusa Engineering Excellence Scholarship',
+    provider: 'Virtusa Foundation',
+    type: 'csr',
+    categoryTag: 'Corporate CSR',
+    reward: '₹50,000 / Year',
+    rewardValue: 50000,
+    deadline: 'Jan 31, 2027',
+    requirements: ['1st or 2nd Year B.E./B.Tech', 'Min 70% in Class 12', 'Income < ₹6 Lakhs'],
+    criteria: {
+      years: ['1st Year', '2nd Year'],
+      courses: ['B.Tech CSE', 'B.Tech ECE', 'B.Tech Mech'],
+      familyIncomes: ['Under ₹1 Lakh', '₹1L–₹2.5L', '₹2.5L–₹8L']
+    }
+  },
+  {
+    id: 'jk-tyre-shiksha-sarthi',
+    name: 'JK Tyre Shiksha Sarthi Scholarship',
+    provider: 'JK Tyre & Industries Ltd (CSR)',
+    type: 'csr',
+    categoryTag: 'Corporate CSR',
+    reward: '₹15,000 - ₹25,000 (One-time)',
+    rewardValue: 25000,
+    deadline: 'Sep 10, 2026',
+    requirements: ['Female, Daughter of Heavy Vehicle (HMV) Driver', 'UG or Diploma Student', 'Min 55% Marks', 'Income ≤ ₹5 Lakhs', 'Resident of Rajasthan/MP/Uttarakhand/Karnataka/Tamil Nadu'],
+    criteria: {
+      genders: ['Female'],
+      familyIncomes: ['Under ₹1 Lakh', '₹1L–₹2.5L', '₹2.5L–₹8L']
+    }
+  },
+  {
+    id: 'sbif-asha-scholarship',
+    name: 'SBIF Asha Scholarship Programme',
+    provider: 'SBI Foundation (CSR)',
+    type: 'csr',
+    categoryTag: 'Corporate CSR',
+    reward: '₹15,000 - ₹20,00,000 (Class 6 to Overseas)',
+    rewardValue: 200000,
+    deadline: 'Oct 01, 2026',
+    requirements: ['Class 6 to PG / IIT / IIM / Overseas', 'Min 75% Marks', 'Income ≤ ₹3 - 6 Lakhs'],
+    criteria: {
+      familyIncomes: ['Under ₹1 Lakh', '₹1L–₹2.5L', '₹2.5L–₹8L']
+    }
+  },
+  {
+    id: 'nsdl-shiksha-sahyog',
+    name: 'NSDL Shiksha Sahyog Scholarship',
+    provider: 'National Securities Depository Ltd (CSR)',
+    type: 'csr',
+    categoryTag: 'Corporate CSR',
+    reward: 'Up to ₹12,000 / Year',
+    rewardValue: 12000,
+    deadline: 'Oct 01, 2026',
+    requirements: ['Class 11 to PG', 'Min 60% Marks', 'Income < ₹3 Lakhs'],
+    criteria: {
+      familyIncomes: ['Under ₹1 Lakh', '₹1L–₹2.5L']
+    }
+  },
+  {
+    id: 'redington-sahayog',
+    name: 'Redington Foundation Sahayog Scholarship',
+    provider: 'Redington Foundation (CSR)',
+    type: 'csr',
+    categoryTag: 'Corporate CSR',
+    reward: 'Up to ₹15,000 / Year',
+    rewardValue: 15000,
+    deadline: 'Feb 07, 2027',
+    requirements: ['1st Year UG (Any Stream)', 'Min 60% in Class 12', 'Income < ₹5 Lakhs'],
+    criteria: {
+      years: ['1st Year'],
+      familyIncomes: ['Under ₹1 Lakh', '₹1L–₹2.5L', '₹2.5L–₹8L']
+    }
+  },
+  {
+    id: 'wagh-bakri-scholarship',
+    name: 'Wagh Bakri Foundation Scholarship',
+    provider: 'Wagh Bakri Tea Group (CSR)',
+    type: 'csr',
+    categoryTag: 'Corporate CSR',
+    reward: '₹20,000 - ₹75,000 (Course-Based)',
+    rewardValue: 75000,
+    deadline: 'Aug 31, 2026',
+    requirements: ['Diploma / B.E./B.Tech / MBBS / BDS / Nursing / B.Ed', 'Min 50% in Class 10 & 12', 'Income < ₹5 Lakhs', 'Gujarat Residents Only'],
+    criteria: {
+      courses: ['B.Tech CSE', 'B.Tech ECE', 'B.Tech Mech', 'MBBS / BDS', 'B.Sc Nursing', 'Polytechnic Diploma'],
+      familyIncomes: ['Under ₹1 Lakh', '₹1L–₹2.5L', '₹2.5L–₹8L']
+    }
+  },
+  {
+    id: 'colgate-keep-india-smiling',
+    name: 'Keep India Smiling Foundational Scholarship (Colgate-Palmolive)',
+    provider: 'Colgate-Palmolive (India) Limited (CSR)',
+    type: 'csr',
+    categoryTag: 'Corporate CSR',
+    reward: 'Up to ₹75,000 (Course-Based)',
+    rewardValue: 75000,
+    deadline: 'Feb 18, 2027',
+    requirements: ['Class 11, UG, Engineering, Vocational Course or Sportsperson', 'Income < ₹5 - 8 Lakhs'],
+    criteria: {
+      familyIncomes: ['Under ₹1 Lakh', '₹1L–₹2.5L', '₹2.5L–₹8L']
+    }
+  },
+  {
+    id: 'lt-build-india',
+    name: 'L&T Build-India Scholarship',
+    provider: 'Larsen & Toubro Construction (CSR)',
+    type: 'csr',
+    categoryTag: 'Corporate CSR',
+    reward: '₹13,400 / Month for 24 Months (₹3,21,600 Total + Sponsored M.Tech)',
+    rewardValue: 321600,
+    deadline: 'Mar 12, 2027',
+    requirements: ['Final Year B.E./B.Tech (Core Civil or Electrical Only)', 'Min 70% or 7.0 CGPA', 'Sponsored M.Tech (CT&M) at IIT/NIT + 5-Year Service Bond'],
+    criteria: {}
+  },
+  {
+    id: 'siemens-scholarship',
+    name: 'Siemens Scholarship Programme',
+    provider: 'Siemens India (CSR)',
+    type: 'csr',
+    categoryTag: 'Corporate CSR',
+    reward: 'Tuition Reimbursement + ₹20,000/Year Allowance (4 Years)',
+    rewardValue: 120000,
+    deadline: 'Sep 30, 2026',
+    requirements: ['1st Year B.Tech at a Govt Engineering College', 'Age ≤ 20', 'Min 60% in Class 10, PCM 60% in Class 12', 'Income ≤ ₹2 Lakhs'],
+    criteria: {
+      years: ['1st Year'],
+      collegeTypes: ['Government'],
+      courses: ['B.Tech CSE', 'B.Tech ECE', 'B.Tech Mech'],
+      familyIncomes: ['Under ₹1 Lakh', '₹1L–₹2.5L']
+    }
+  },
+  {
+    id: 'google-generation-scholarship',
+    name: 'Google Generation Scholarship (APAC)',
+    provider: 'Google.org',
+    type: 'csr',
+    categoryTag: 'Corporate CSR',
+    reward: 'USD 2,500 (~₹2,10,000, One-time)',
+    rewardValue: 210000,
+    deadline: 'Aug 31, 2026',
+    requirements: ['Female Student', '2nd or 3rd Year UG in Computer Science / Related Field', 'Demonstrated Financial Need', 'Essay + Resume Required'],
+    criteria: {
+      genders: ['Female'],
+      years: ['2nd Year', '3rd Year'],
+      courses: ['B.Sc CS/IT', 'B.Tech CSE']
+    }
+  },
+  {
+    id: 'muthoot-m-george',
+    name: 'Muthoot M George Higher Education Scholarship',
+    provider: 'Muthoot M George Foundation (CSR)',
+    type: 'csr',
+    categoryTag: 'Corporate CSR',
+    reward: '₹1,20,000 - ₹2,40,000 (Course-Based)',
+    rewardValue: 240000,
+    deadline: 'Nov 30, 2026',
+    requirements: ['MBBS / B.Tech / B.Sc Nursing Student', 'Min 80% in Class 12', 'Income ≤ ₹2 Lakhs', 'Resident of Kerala or Select Metro Cities'],
+    criteria: {
+      courses: ['B.Tech CSE', 'B.Tech ECE', 'B.Tech Mech', 'MBBS / BDS', 'B.Sc Nursing'],
+      familyIncomes: ['Under ₹1 Lakh', '₹1L–₹2.5L']
+    }
+  },
+  {
+    id: 'hpcl-scholarship',
+    name: 'HPCL Educational Scholarship',
+    provider: 'Hindustan Petroleum Corporation Limited (CSR)',
+    type: 'csr',
+    categoryTag: 'Corporate CSR',
+    reward: 'Merit-Based Award (Amount Varies by Class/Year)',
+    rewardValue: 20000,
+    deadline: 'Varies (Check Official Site)',
+    requirements: ['SC / ST / OBC / PWD Category Only', 'Class 12 to Graduation/PG', 'Min 45% Marks', 'Income ≤ ₹2.5 Lakhs'],
+    criteria: {
+      categories: ['SC', 'ST', 'OBC'],
+      disabilities: ['Below 40%', '40% or Above'],
+      familyIncomes: ['Under ₹1 Lakh', '₹1L–₹2.5L']
+    }
+  },
+  {
+    id: 'ongc-foundation-scholarship',
+    name: 'ONGC Foundation Scholarship',
+    provider: 'ONGC Foundation (CSR)',
+    type: 'csr',
+    categoryTag: 'Corporate CSR',
+    reward: '₹48,000 / Year',
+    rewardValue: 48000,
+    deadline: 'May 15, 2027',
+    requirements: ['SC / ST / OBC / General-EWS', '1st Year Engineering / MBBS / MBA / M.Sc Geology-Geophysics', 'Min 60% Marks', 'Income ≤ ₹2 - 4.5 Lakhs'],
+    criteria: {
+      categories: ['SC', 'ST', 'OBC', 'General'],
+      years: ['1st Year'],
+      courses: ['B.Tech CSE', 'B.Tech ECE', 'B.Tech Mech', 'MBBS / BDS'],
+      familyIncomes: ['Under ₹1 Lakh', '₹1L–₹2.5L', '₹2.5L–₹8L']
+    }
+  },
+  {
+    id: 'schindler-igniting-minds',
+    name: 'Schindler Igniting Minds (SIM) Scholarship',
+    provider: 'Schindler India Pvt Ltd (CSR)',
+    type: 'csr',
+    categoryTag: 'Corporate CSR',
+    reward: '₹20,000 - ₹75,000 (Course-Based)',
+    rewardValue: 75000,
+    deadline: 'Jan 17, 2027',
+    requirements: ['ITI / Diploma / B.E./B.Tech Student', 'Min 50-70% Marks', 'Income < ₹3 - 5 Lakhs'],
+    criteria: {
+      courses: ['Polytechnic Diploma', 'B.Tech CSE', 'B.Tech ECE', 'B.Tech Mech'],
+      familyIncomes: ['Under ₹1 Lakh', '₹1L–₹2.5L', '₹2.5L–₹8L']
+    }
+  },
+  {
+    id: 'jsw-udaan-scholarship',
+    name: 'JSW UDAAN Scholarship',
+    provider: 'JSW Foundation (CSR)',
+    type: 'csr',
+    categoryTag: 'Corporate CSR',
+    reward: '₹10,000 - ₹60,000 (Course-Based)',
+    rewardValue: 60000,
+    deadline: 'Feb 28, 2027',
+    requirements: ['ITI / Diploma / UG / PG Student', 'Min 50-60% Marks', 'Income < ₹8 Lakhs', 'Preference: Near JSW Plant Locations'],
+    criteria: {
+      familyIncomes: ['Under ₹1 Lakh', '₹1L–₹2.5L', '₹2.5L–₹8L']
+    }
+  },
+  {
+    id: 'transunion-cibil-scholarship',
+    name: 'TransUnion CIBIL Scholarship',
+    provider: 'TransUnion CIBIL (CSR)',
+    type: 'csr',
+    categoryTag: 'Corporate CSR',
+    reward: 'Up to ₹40,000 (Course-Based)',
+    rewardValue: 40000,
+    deadline: 'Nov 30, 2026',
+    requirements: ['Female Student Only', 'B.E./B.Tech / BDS / MCA / Pharmacy / Nursing', 'Min 65% in Class 12', 'Income < ₹3 - 10 Lakhs'],
+    criteria: {
+      genders: ['Female'],
+      courses: ['B.Tech CSE', 'B.Tech ECE', 'B.Tech Mech', 'MBBS / BDS', 'B.Sc Nursing'],
+      familyIncomes: ['Under ₹1 Lakh', '₹1L–₹2.5L', '₹2.5L–₹8L']
+    }
+  },
+  {
+    id: 'timken-india-scholarship',
+    name: 'Timken India Scholarship',
+    provider: 'Timken Engineering & Research India Pvt Ltd (CSR)',
+    type: 'csr',
+    categoryTag: 'Corporate CSR',
+    reward: '₹10,000 - ₹50,000 (Course-Based)',
+    rewardValue: 50000,
+    deadline: 'Dec 31, 2026',
+    requirements: ['ITI / Diploma / B.E./B.Tech / B.Sc Nursing', 'Min 35-50% Marks', 'Income < ₹8 Lakhs', 'Preference: Pune/Chennai/Jamshedpur/Bharuch Region'],
+    criteria: {
+      courses: ['Polytechnic Diploma', 'B.Tech CSE', 'B.Tech ECE', 'B.Tech Mech', 'B.Sc Nursing'],
+      familyIncomes: ['Under ₹1 Lakh', '₹1L–₹2.5L', '₹2.5L–₹8L']
+    }
+  },
+  {
+    id: 'rbl-bank-shiksha',
+    name: 'RBL Bank Shiksha Scholarship',
+    provider: 'RBL Bank (CSR)',
+    type: 'csr',
+    categoryTag: 'Corporate CSR',
+    reward: '₹20,000 / Year (Up to ₹60,000 over 3 Years)',
+    rewardValue: 20000,
+    deadline: 'Feb 28, 2027',
+    requirements: ['1st Year of a 3-Year UG Course', 'Min 60% in Class 10 & 12', 'Income < ₹4 Lakhs'],
+    criteria: {
+      years: ['1st Year'],
+      familyIncomes: ['Under ₹1 Lakh', '₹1L–₹2.5L', '₹2.5L–₹8L']
+    }
+  },
+  {
+    id: 'alkem-shri-samprada-singh',
+    name: 'Alkem Foundation Scholarship (Shri Samprada Singh Programme)',
+    provider: 'Alkem Foundation (CSR)',
+    type: 'csr',
+    categoryTag: 'Corporate CSR',
+    reward: '₹30,000 - ₹70,000 (Class-Based)',
+    rewardValue: 70000,
+    deadline: 'Varies (Check Official Site)',
+    requirements: ['Class 2 to UG/Diploma Student', 'Family Affected by a Death or Health Crisis', 'Min 35% Marks'],
+    criteria: {}
+  },
+  {
+    id: 'astral-foundation-scholarship',
+    name: 'Astral Foundation Scholarship',
+    provider: 'Astral Limited (CSR)',
+    type: 'csr',
+    categoryTag: 'Corporate CSR',
+    reward: '₹10,000 - ₹40,000 (Course-Based)',
+    rewardValue: 40000,
+    deadline: 'Aug 29, 2026',
+    requirements: ['UG / B.E./B.Tech / B.Ed / Diploma Student', 'Min 50% in Class 10 & 12', 'Income < ₹5 Lakhs'],
+    criteria: {
+      courses: ['B.Tech CSE', 'B.Tech ECE', 'B.Tech Mech'],
+      familyIncomes: ['Under ₹1 Lakh', '₹1L–₹2.5L', '₹2.5L–₹8L']
+    }
+  },
+  {
+    id: 'arvind-foundation-scholarship',
+    name: 'Arvind Foundation Scholarship',
+    provider: 'Arvind Limited (CSR)',
+    type: 'csr',
+    categoryTag: 'Corporate CSR',
+    reward: '₹5,000 - ₹40,000 (Class-Based)',
+    rewardValue: 40000,
+    deadline: 'Jan 30, 2027',
+    requirements: ['Class 11 to PG (Incl. ITI/Diploma)', 'Min 50% in Class 10', 'Income < ₹5 Lakhs'],
+    criteria: {
+      familyIncomes: ['Under ₹1 Lakh', '₹1L–₹2.5L', '₹2.5L–₹8L']
+    }
+  },
+  {
+    id: 'eaton-india-vidyavikas',
+    name: 'Eaton India Foundation Scholarship (VidyaVikas Programme)',
+    provider: 'Eaton India Foundation (CSR)',
+    type: 'csr',
+    categoryTag: 'Corporate CSR',
+    reward: 'Up to ₹75,000 / Year',
+    rewardValue: 75000,
+    deadline: 'Dec 31, 2026',
+    requirements: ['UG Student (BBA/BCA/B.Com/B.Sc/B.A/B.E./B.Tech)', 'Min 35% Marks', 'Income < ₹5 Lakhs'],
+    criteria: {
+      familyIncomes: ['Under ₹1 Lakh', '₹1L–₹2.5L', '₹2.5L–₹8L']
+    }
+  },
+  {
+    id: 'vivo-kanyagyaan-scholarship',
+    name: 'Vivo Mobile India CSR Scholarship (KanyaGyaan Programme)',
+    provider: 'Vigour Mobile India Pvt Ltd / vivo India (CSR)',
+    type: 'csr',
+    categoryTag: 'Corporate CSR',
+    reward: '₹60,000 / Year (Renewable up to 3 Years)',
+    rewardValue: 60000,
+    deadline: 'Mar 03, 2027',
+    requirements: ['Female Student Only', '1st or 2nd Year STEM UG', 'Min 70% Marks', 'Income ≤ ₹5 Lakhs'],
+    criteria: {
+      genders: ['Female'],
+      years: ['1st Year', '2nd Year'],
+      courses: ['B.Tech CSE', 'B.Tech ECE', 'B.Tech Mech', 'B.Sc CS/IT'],
+      familyIncomes: ['Under ₹1 Lakh', '₹1L–₹2.5L', '₹2.5L–₹8L']
     }
   }
 ];
